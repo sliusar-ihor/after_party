@@ -1,9 +1,10 @@
 Description:
     Generates a rake task that will be included at the end of the deployment task.  An optional
-    second parameter with the task description is recommended.
+    parameter with the task description is recommended. An optional group
+    parameter with the task group is recommended.
 
 Example:
-    rails generate after_party:task task_name --description=optional_description_of_the_task
+    rails generate after_party:task task_name --group=after_load --description=optional_description_of_the_task
 
     This will create:
         lib/tasks/deployment/<timestamp>_data_update.rake

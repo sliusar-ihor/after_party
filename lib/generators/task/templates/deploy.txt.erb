@@ -1,11 +1,13 @@
 namespace :after_party do
   desc '<%= task_description %>'
-  task <%= file_name %>: :environment do
+  task <%= file_name %>, [:group] => [:environment] do |_task, args|
+    return if args[:group] != '<%= task_group %>' # available before_migrate|before_load|after_load
+
     puts "Running deploy task '<%= file_name %>'"
 
     # Put your task implementation HERE.
 
-    # Update task as completed.  If you remove the line below, the task will
+    # Update task as completed. If you remove the line below, the task will
     # run with every deploy (or every time you call after_party:run).
     AfterParty::TaskRecord
       .create version: AfterParty::TaskRecorder.new(__FILE__).timestamp
