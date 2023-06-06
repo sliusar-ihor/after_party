@@ -1,7 +1,7 @@
 namespace :after_party do
   desc '<%= task_description %>'
-  task <%= file_name %>, [:group] => [:environment] do |_task, args|
-    return if args[:group] != '<%= task_group %>' # available before_migrate|before_load|after_load
+  task :<%= file_name %>, [:group] => [:environment] do |_task, args|
+    next if args[:group] != '<%= task_group %>' # available before_migrate|before_load|after_load
 
     puts "Running deploy task '<%= file_name %>'"
 
