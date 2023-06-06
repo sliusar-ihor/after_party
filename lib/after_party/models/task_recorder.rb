@@ -10,6 +10,8 @@ module AfterParty
       Dir[FILE_MASK].collect { |f| TaskRecorder.new(f) }
         .select(&:pending?)
         .sort_by(&:timestamp)
+    rescue StandardError => e
+      []
     end
 
     def initialize(filename = '')
