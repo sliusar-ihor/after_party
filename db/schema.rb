@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2013_02_08_204820) do
 
   create_table "task_records", id: false, force: :cascade do |t|
     t.string "version", null: false
+    t.string "task_name"
   end
 
 end

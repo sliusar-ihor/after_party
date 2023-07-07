@@ -29,5 +29,9 @@ module AfterParty
         @task_name = m[2]
       end
     end
+
+    def to_h
+      { version: timestamp, task_name: task_name  }
+    end
   end
 end

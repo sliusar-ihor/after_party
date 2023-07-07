@@ -3,6 +3,7 @@ if ActiveRecord::VERSION::MAJOR >= 5
     def change
       create_table :task_records, :id => false do |t|
         t.string :version, :null => false
+        t.string :task_name
       end
     end
   end
@@ -12,6 +13,7 @@ else
     def change
       create_table :task_records, :id => false do |t|
         t.string :version, :null => false
+        t.string :task_name
       end
     end
   end
